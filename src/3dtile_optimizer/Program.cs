@@ -11,8 +11,8 @@ namespace _3dtile_optimizer
         {
             Console.WriteLine("Hello World!");
 
-            var input_dir = @"D:\dev\github.com\bertt\mapbox_3dtiles_samples\samples\street";
-            var output_dir = @"D:\dev\github.com\bertt\mapbox_3dtiles_samples\samples\street\output";
+            var input_dir = @"D:\dev\github.com\bertt\mapbox_3dtiles_samples\samples\street\orig";
+            var output_dir = @"D:\dev\github.com\bertt\mapbox_3dtiles_samples\samples\street";
 
             var b3dms = Directory.GetFiles(input_dir, "*.b3dm");
 
@@ -32,7 +32,7 @@ namespace _3dtile_optimizer
                 var startInfo = new ProcessStartInfo();
                 startInfo.WorkingDirectory = output_dir;
                 startInfo.FileName = @"gltfpack.cmd";
-                startInfo.Arguments = $"-i {Path.GetFileName(glbname)} -o {Path.GetFileName(glbname)}";
+                startInfo.Arguments = $"-i {Path.GetFileName(glbname)} -o {Path.GetFileName(glbname)} -c";
                 Process.Start(startInfo);
 
                 // must wait till gltpfpack is surely finished
